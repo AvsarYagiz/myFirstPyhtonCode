@@ -39,11 +39,9 @@ def update_contact_phone(name, renumber):
         print("The person you want to update does not exist!")
 
 
-"""
 def random_choice():
     name = random.choice(list(contact.keys()))
     return name, contact[name]
-    """
 
 
 def view_contacts():
@@ -53,6 +51,7 @@ def view_contacts():
         i = 1
         for key, value in contact.items():
             print(f"{i})\n\tName: {key}\n\tPhone number: {value}")
+
             i += 1
         return
     print("The contacts are empty!")
@@ -92,8 +91,7 @@ def main():
             update_contact_phone(name, renumber)
 
         elif selection == "5":
-            name = random.choice(list(contact.keys()))
-            phone = contact[name]
+            name, phone = random_choice()
             print(f"\n\tName: {name}\n\tPhone: {phone}")
 
         elif selection == "6":
