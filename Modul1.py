@@ -1,11 +1,11 @@
 people = []
-bwi: float
+bmi: float
 
 
-def bwi_calculator(number, number2):
-    global bwi
-    bwi = round(number / (number2 ** 2), 2)
-    return bwi
+def bmi_calculator(number, number2):
+    global bmi
+    bmi = round(number / (number2 ** 2), 2)
+    return bmi
 
 
 while True:
@@ -19,8 +19,8 @@ for i in range(count):
     name = str(input('Please enter your name: '))
     weight = float(input('Please enter your weight(kg): '))
     height = int(input('Please enter your height(cm): ')) / 100
-    bwi_calculator(weight, height)
-    record = {name: bwi}
+    bmi_calculator(weight, height)
+    record = {name: bmi}
     people.append(record)
 i = 0
 for i in range(count):
