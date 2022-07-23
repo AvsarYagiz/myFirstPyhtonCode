@@ -1,45 +1,42 @@
-loginInfo = {"nickname": "password"}
-username = str(input("Please enter your username or nickname: "))
-isLogin = False
+login_info = {
+    "samplename": "samplepassword"
+}
+username = str(input("Please enter your username: "))
 
-if username in loginInfo.keys():
+if username in login_info.keys():
     password = str(input("Please enter your password: "))
-    if loginInfo[username] == password:
-        print("You logged in successfully")
+    if password in login_info[username] == password:
+        print("Login success!")
         isLogin = True
     else:
         print("The password is wrong!")
 else:
-    print("That username you entered does not exist!")
-menu = '''
+    print("No such user found! Please try again later!")
+menu = ''' 
 1: Change password
-2: Change username
-3: Delete account
+2: Change username 
+3: Delete this account 
 q: Exit
 '''
 while isLogin:
     print(menu)
-    selected = input("Please make a selection on the menu: ")
-    print("*" * 70)
-    if selected == '1':
-        newPassword = input("\nPlease enter your new password: ")
-        if len(newPassword) >= 8:
-            loginInfo[username] = newPassword
-            print(f"\nYour password updated as {newPassword}")
-        else:
-            print("Your password must be 8 characters at least!")
-    elif selected == '2':
-        newUsername = input("\nPlease enter your new username: ")
-        loginInfo[newUsername] = loginInfo[username]
-        del loginInfo[username]
+    selection = str(input("Please select the operation you want to do from the menu: "))
+    print('*' * 50)
+    if selection == '1':
+        newPassword = str(input("Please enter your new password: "))
+        login_info[username] = newPassword
+        print(f"Your new password is {newPassword}")
+    elif selection == '2':
+        newUsername = str(input("Please enter your new username: "))
+        login_info[newUsername] = login_info[username]
+        del login_info[username]
         username = newUsername
-        print(f"\nYour username updated as {newUsername}")
-    elif selected == "3":
-        del loginInfo[username]
-        print("Your account deleted successfully")
-    elif selected == "q":
-        print("Goodbye!!!")
+        print(f"Your new username is {username}")
+    elif selection == '3':
+        del login_info[username]
+        print("Your account deleted successfully!")
+    elif selection == 'q':
+        print("Goodbye!")
         break
     else:
-        print("You entered wrong key! Please check the select options on the menu then try again!")
-
+        print("You did a mistake during selection. Please make sure your selection is on the menu!")
